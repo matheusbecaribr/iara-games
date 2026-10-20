@@ -104,26 +104,6 @@ Todos os formulários contam com cuidados de acessibilidade e usabilidade:
 
 ---
 
-## 🚀 Como Executar o Projeto Localmente
-
-Como o projeto foi construído puramente com **HTML5, CSS3 e JavaScript nativo**, você não precisa instalar o Node.js nem gerenciar dependências:
-
-1. **Clone o repositório:**
-   ```bash
-   git clone https://github.com/SEU_USUARIO/iara-games.git
-   ```
-
-2. **Acesse a pasta do projeto:**
-   ```bash
-   cd iara-games/code
-   ```
-
-3. **Abra no navegador:**
-   - Basta dar um duplo clique no arquivo `index.html`, ou
-   - Utilizar a extensão **Live Server** no VS Code / IDE de sua preferência para ter atualização automática.
-
----
-
 ## 📁 Estrutura de Arquivos
 
 ```plaintext
@@ -147,18 +127,3 @@ iara-games/
 ├── DOCUMENTACAO_SPRINT2.md  # Relatório detalhado para envio do PDF à FIAP
 └── README.md                # Apresentação do repositório
 ```
-
----
-
-## 👥 Integrantes do Grupo
-
-- **Matheus Becari** — *RM: [INSERIR_RM]*
-- *[Nome do Integrante]* — *RM: [INSERIR_RM]*
-- *[Nome do Integrante]* — *RM: [INSERIR_RM]*
-
----
-
-## 🎥 Vídeo de Apresentação (Pitch)
-
-- **Link do Vídeo:** `[INSERIR_LINK_DO_SEU_VIDEO_PITCH]`  
-*(Vídeo pitch demonstrando o que foi projetado, construído e os avanços da Sprint 01 para a Sprint 02).*
