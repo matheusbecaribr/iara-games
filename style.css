@@ -1,0 +1,1902 @@
+/* ==========================================================================
+   IARA GAMES — DESIGN SYSTEM DO FIGMA (Tokens Oficiais Extraídos do MCP)
+   Arquivo: bLZjHN40coqtFR8CxRUur3 / Node: 6:3
+   ========================================================================== */
+
+:root {
+  --color-bg: #020202;
+  --color-green-neon: #C0FF00;
+  --color-green-dark: #171F00;
+  --color-green-border: rgba(192, 255, 0, 0.5);
+  --color-white: #FFFFFF;
+  --color-text-muted: #666666;
+  --color-text-sub: rgba(255, 255, 255, 0.65);
+  --color-card-border: rgba(255, 255, 255, 0.15);
+
+  --font-main: 'Urbanist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-pixel: 'Silkscreen', monospace;
+}
+
+/* Reset básico */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--color-bg);
+}
+
+body {
+  font-family: var(--font-main);
+  color: var(--color-white);
+  background-color: var(--color-bg);
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+  background-size: 100px 100px;
+  background-position: 0 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* ==========================================================================
+   MENU SUPERIOR (menu-cima: 1920x120px)
+   ========================================================================== */
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 100;
+  background: linear-gradient(180deg, rgba(2, 2, 2, 1) 0%, rgba(2, 2, 2, 0.75) 75%, rgba(2, 2, 2, 0) 100%);
+  backdrop-filter: blur(14px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 50px;
+}
+
+.topbar-inner {
+  width: 1920px;
+  max-width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.brand-logo {
+  width: 100px;
+  height: 37px;
+  object-fit: contain;
+  transition: transform 0.2s ease;
+}
+
+.brand-logo:hover {
+  transform: scale(1.05);
+}
+
+.topbar-center {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* Search bar: 350x50px, border-radius 20px */
+.search-bar {
+  width: 350px;
+  height: 50px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, rgba(192, 255, 0, 0.05) 0%, rgba(113, 150, 0, 0.02) 51%, rgba(192, 255, 0, 0.1) 100%),
+    linear-gradient(180deg, rgba(2, 2, 2, 0.38) 0%, rgba(2, 2, 2, 0.5) 100%);
+  border: 2px solid rgba(192, 255, 0, 0.3);
+  box-shadow: inset 0 0 20px rgba(192, 255, 0, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  gap: 10px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.search-bar:focus-within {
+  border-color: var(--color-green-neon);
+  box-shadow: inset 0 0 20px rgba(192, 255, 0, 0.15), 0 0 15px rgba(192, 255, 0, 0.2);
+}
+
+.search-icon {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.search-bar input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 15px;
+  font-weight: 400;
+}
+
+.search-bar input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.filter-btn {
+  width: 20px;
+  height: 19px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.filter-btn svg {
+  width: 100%;
+  height: 100%;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.nav-item {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.65);
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.nav-item:hover {
+  color: var(--color-white);
+}
+
+.nav-item.active {
+  color: var(--color-white);
+  border-bottom: 2px solid var(--color-green-neon);
+  padding-bottom: 4px;
+}
+
+.nav-dropdown svg {
+  width: 12px;
+  height: 8px;
+}
+
+.user-profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+.user-profile-trigger {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 20px;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.user-profile-trigger:hover .user-avatar-wrap {
+  border-color: var(--color-green-neon);
+  box-shadow: 0 0 16px rgba(192, 255, 0, 0.4);
+}
+
+.user-profile-trigger:hover {
+  color: var(--color-green-neon);
+}
+
+.user-greeting {
+  font-size: 16px;
+  font-weight: 600;
+  text-align: right;
+}
+
+.greet-time {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--color-green-neon);
+}
+
+.greet-name {
+  font-weight: 700;
+  color: var(--color-white);
+  transition: color 0.2s ease;
+}
+
+.user-avatar-wrap {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 18px;
+  border: 2px solid var(--color-green-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  transition: all 0.2s ease;
+}
+
+.user-avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+
+.status-online {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 12.5px;
+  height: 12.5px;
+  background: var(--color-green-neon);
+  border: 3px solid var(--color-bg);
+  border-radius: 50%;
+}
+
+/* ==========================================================================
+   DROPDOWN MENU DO USUÁRIO (FIGMA: menu usuario #350:1452)
+   ========================================================================== */
+.user-dropdown-menu {
+  position: absolute;
+  top: calc(100% + 14px);
+  right: 98px;
+  width: 320px;
+  background: rgba(2, 2, 2, 0.98);
+  backdrop-filter: blur(60px);
+  -webkit-backdrop-filter: blur(60px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 40px 5px 40px 40px;
+  box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.85), inset 0px 0px 50px 4px rgba(255, 255, 255, 0.05);
+  padding: 25px 25px 24px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px) scale(0.97);
+  transition: opacity 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.22s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+  pointer-events: none;
+}
+
+.user-dropdown-menu.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Brilho de topo delicado */
+.user-dropdown-menu::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 40px;
+  right: 5px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.05) 100%);
+  pointer-events: none;
+  border-top-right-radius: 5px;
+}
+
+/* Header do menu de usuário */
+.user-menu-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  position: relative;
+}
+
+.user-menu-avatar-box {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 18px;
+  border: 2px solid rgba(192, 255, 0, 0.7);
+  background: rgba(14, 25, 2, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.user-menu-camera-icon {
+  width: 24px;
+  height: 24px;
+  color: #FFFFFF;
+}
+
+.user-menu-status-dot {
+  position: absolute;
+  right: -3px;
+  bottom: -3px;
+  width: 13px;
+  height: 13px;
+  background: var(--color-green-neon);
+  border: 3px solid #020202;
+  border-radius: 50%;
+}
+
+.user-menu-info {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+}
+
+.user-menu-name {
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  color: #FFFFFF;
+  line-height: 1.2;
+}
+
+.user-menu-status {
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 500;
+  color: #666666;
+}
+
+.user-menu-edit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  color: var(--color-green-neon);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  padding: 0;
+  margin-left: auto;
+}
+
+.user-menu-edit-btn:hover {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 6px var(--color-green-neon));
+}
+
+.user-menu-edit-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Divisor horizontal */
+.user-menu-divider {
+  width: 100%;
+  height: 1px;
+  margin: 18px 0 16px;
+  background: linear-gradient(90deg, transparent 0%, rgba(102, 102, 102, 0.66) 50%, transparent 100%);
+}
+
+/* Lista de Itens */
+.user-menu-items {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.user-menu-item {
+  width: 100%;
+  height: 58px;
+  border-radius: 15px;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.25) 0%, rgba(102, 102, 102, 0.2) 100%);
+  box-shadow: inset 0px 4px 9.6px 0px rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+  color: #FFFFFF;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user-menu-item svg {
+  width: 20px;
+  height: 20px;
+  color: #FFFFFF;
+  flex-shrink: 0;
+}
+
+.user-menu-item:hover {
+  background: linear-gradient(180deg, rgba(25, 38, 5, 0.35) 0%, rgba(102, 102, 102, 0.3) 100%);
+  border-color: rgba(192, 255, 0, 0.35);
+  box-shadow: inset 0px 4px 9.6px 0px rgba(192, 255, 0, 0.06), 0 0 16px rgba(192, 255, 0, 0.12);
+  transform: translateY(-1px);
+}
+
+/* Botão Encerrar Sessão */
+.user-menu-logout-btn {
+  margin-top: 135px;
+  width: 100%;
+  height: 58px;
+  border-radius: 15px;
+  background: linear-gradient(0deg, rgba(255, 0, 0, 0.12) 0%, rgba(16, 0, 0, 0.12) 100%);
+  box-shadow: inset 0px 4px 9.6px 0px rgba(255, 0, 0, 0.07);
+  border: 1px solid rgba(255, 0, 0, 0.18);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 18px;
+  color: #FFFFFF;
+  font-family: var(--font-main);
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.user-menu-logout-btn svg {
+  width: 20px;
+  height: 20px;
+  color: #FF2B2B;
+  flex-shrink: 0;
+}
+
+.user-menu-logout-btn:hover {
+  background: linear-gradient(0deg, rgba(255, 0, 0, 0.22) 0%, rgba(40, 0, 0, 0.2) 100%);
+  border-color: rgba(255, 50, 50, 0.45);
+  box-shadow: inset 0px 4px 9.6px 0px rgba(255, 0, 0, 0.15), 0 0 18px rgba(255, 0, 0, 0.25);
+  transform: translateY(-1px);
+}
+
+.header-icon-btn {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+}
+
+.header-icon-btn:hover {
+  transform: scale(1.15);
+}
+
+.header-icon-btn svg {
+  width: 22px;
+  height: 22px;
+}
+
+.header-badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-green-neon);
+}
+
+/* ==========================================================================
+   MENU LATERAL FIXO (DOCK DIREITO — FIEL AO FIGMA #6:3 / 66:480 / 63:338)
+   ========================================================================== */
+.sidebar-dock {
+  position: fixed;
+  right: 30px;
+  top: 208px;
+  z-index: 90;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 48px;
+  pointer-events: none;
+}
+
+.dock-group,
+.dock-bottom-actions {
+  pointer-events: auto;
+}
+
+/* Cápsula do menu lateral (Pills: 76px de largura, fiel ao Figma #6:3 / 66:480 / 63:338) */
+.dock-group {
+  position: relative;
+  width: 76px;
+  border-radius: 30px;
+  border: 2px solid transparent;
+  background:
+    /* Camada 1: Destaques de luz sutil nas pontas (135deg), centro limpo no preto (Figma) */
+    linear-gradient(135deg,
+      rgba(192, 255, 0, 0.15) 0%,
+      rgba(192, 255, 0, 0.06) 6%,
+      rgba(0, 0, 0, 0) 20%,
+      rgba(0, 0, 0, 0) 80%,
+      rgba(192, 255, 0, 0.06) 94%,
+      rgba(192, 255, 0, 0.14) 100%) padding-box,
+    /* Camada 2: Fundo preto profundo e contrastado */
+    linear-gradient(180deg,
+      rgba(8, 12, 4, 0.94) 0%,
+      #030502 45%,
+      #020202 55%,
+      rgba(8, 12, 4, 0.94) 100%) padding-box,
+    /* Camada 3: Borda em gradiente 225deg fiel ao Figma (verde suave 0.2 nas curvas, preto no meio) */
+    linear-gradient(225deg,
+      rgba(192, 255, 0, 0.22) 0%,
+      rgba(192, 255, 0, 0.03) 25%,
+      rgba(4, 6, 2, 0.95) 50%,
+      rgba(192, 255, 0, 0.03) 75%,
+      rgba(192, 255, 0, 0.22) 100%) border-box;
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.75),
+    0 0 16px rgba(192, 255, 0, 0.03);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  padding: 16px 0;
+}
+
+.dock-group.dock-top {
+  min-height: 151px;
+}
+
+.dock-group.dock-main {
+  min-height: 275px;
+}
+
+/* Chevron / Seta lateral de recolher no lado esquerdo da cápsula */
+.dock-collapse-arrow {
+  position: absolute;
+  left: -24px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 22px;
+  height: 22px;
+  color: #C0FF00;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, filter 0.2s ease, color 0.2s ease;
+  z-index: 2;
+}
+
+.dock-collapse-arrow svg {
+  width: 18px;
+  height: 18px;
+  stroke: #C0FF00 !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 3px rgba(192, 255, 0, 0.5));
+}
+
+.dock-collapse-arrow:hover {
+  transform: translateY(-50%) translateX(-3px);
+  filter: drop-shadow(0 0 8px rgba(192, 255, 0, 0.9));
+}
+
+.dock-group.dock-main .dock-collapse-arrow {
+  top: 36%;
+}
+
+/* Itens de navegação dentro das cápsulas */
+.dock-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  padding: 0;
+  border-radius: 18px;
+  border: 1px solid transparent;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+  text-decoration: none;
+  transition: all 0.22s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.dock-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: #ffffff;
+  transition: stroke 0.2s ease, transform 0.2s ease, filter 0.2s ease;
+}
+
+.dock-btn:hover {
+  background: rgba(192, 255, 0, 0.08);
+  color: #C0FF00;
+}
+
+.dock-btn:hover svg {
+  stroke: #C0FF00;
+  transform: scale(1.06);
+}
+
+/* Item ativo (Fiel ao Figma: almofada oliva/neon com relevo, sombra interna e brilho) */
+.dock-btn.active,
+.dock-btn.is-active {
+  background:
+    radial-gradient(circle at 50% 35%,
+      rgba(192, 255, 0, 0.34) 0%,
+      rgba(65, 95, 6, 0.28) 65%,
+      rgba(18, 26, 2, 0.45) 100%),
+    #121a04;
+  border: 1px solid rgba(192, 255, 0, 0.38);
+  box-shadow:
+    0 4px 14px rgba(0, 0, 0, 0.55),
+    inset 0 1px 2px rgba(192, 255, 0, 0.4),
+    0 0 18px rgba(192, 255, 0, 0.2);
+  color: #C0FF00;
+}
+
+.dock-btn.active svg,
+.dock-btn.is-active svg {
+  stroke: #C0FF00;
+  filter: drop-shadow(0 0 6px rgba(192, 255, 0, 0.7));
+}
+
+/* Ações inferiores flutuantes (Downloads e Chat) */
+.dock-bottom-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  margin-top: 36px;
+}
+
+.dock-bottom-btn {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  border-radius: 20px;
+  border: 1.5px solid transparent;
+  background:
+    linear-gradient(180deg,
+      rgba(192, 255, 0, 0.08) 0%,
+      rgba(0, 0, 0, 0) 30%,
+      rgba(0, 0, 0, 0) 70%,
+      rgba(192, 255, 0, 0.08) 100%) padding-box,
+    linear-gradient(180deg,
+      rgba(8, 12, 4, 0.94) 0%,
+      #030502 100%) padding-box,
+    linear-gradient(225deg,
+      rgba(192, 255, 0, 0.22) 0%,
+      rgba(4, 6, 2, 0.95) 50%,
+      rgba(192, 255, 0, 0.22) 100%) border-box;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.dock-bottom-btn:hover {
+  transform: scale(1.08);
+  border-color: rgba(192, 255, 0, 0.55);
+  box-shadow: 0 0 18px rgba(192, 255, 0, 0.3);
+}
+
+.dock-bottom-btn svg {
+  width: 20px;
+  height: 20px;
+  stroke: #ffffff;
+}
+
+.dock-badge {
+  position: absolute;
+  top: -6px;
+  right: -3px;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #C0FF00;
+  text-shadow: 0 0 8px rgba(192, 255, 0, 0.65);
+}
+
+.dock-status-dot {
+  position: absolute;
+  right: -2px;
+  bottom: -2px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #C0FF00;
+  box-shadow: 0 0 8px #C0FF00;
+  border: 2px solid #050702;
+}
+
+/* ==========================================================================
+   CONTEÚDO DA PÁGINA (1293px centralizado)
+   ========================================================================== */
+.page-container {
+  width: 1293px;
+  margin: 0 auto;
+  padding: 150px 0 100px;
+}
+
+/* Títulos de seção padrões */
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.title-with-icon {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.flame-icon {
+  width: 35px;
+  height: 35px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.title-italic {
+  font-style: italic;
+  font-weight: 400;
+}
+
+.title-green {
+  color: var(--color-green-neon);
+  font-style: italic;
+}
+
+.link-ver-mais {
+  font-size: 16px;
+  font-weight: 500;
+  font-style: italic;
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s ease;
+}
+
+.link-ver-mais:hover {
+  color: var(--color-green-neon);
+}
+
+.link-ver-mais svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ==========================================================================
+   SEÇÃO 1: HERO SENNA + DESTAQUES DA SEMANA
+   ========================================================================== */
+.section-hero-row {
+  display: grid;
+  grid-template-columns: 825px 404px;
+  gap: 64px;
+  align-items: start;
+  margin-bottom: 70px;
+}
+
+/* Container 3D do Hero (825px de largura) */
+.hero-3d-wrapper {
+  position: relative;
+  width: 825px;
+  height: 412px;
+  margin-top: 55px;
+  /* respiro superior para a cabeça do Senna sair da moldura */
+}
+
+/* Moldura externa escura (825 x 412px, border-radius 60px) */
+.hero-card-base {
+  position: relative;
+  width: 825px;
+  height: 412px;
+  border-radius: 60px;
+  background: linear-gradient(135deg, #050800 0%, #020202 50%, #0d1400 85%, #b6f000 100%);
+  border: 1px solid rgba(192, 255, 0, 0.35);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.95), 0 0 50px rgba(192, 255, 0, 0.15);
+  overflow: hidden;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Card amarelo interno da arte do jogo (825 x 321px, border-radius 60px) */
+.hero-inner-yellow-card {
+  position: relative;
+  width: 825px;
+  height: 321px;
+  border-radius: 60px;
+  overflow: hidden;
+  background: #020202;
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.6);
+  flex-shrink: 0;
+}
+
+.hero-inner-bg-art {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: 60px;
+}
+
+/* Barra inferior escura do card (altura 91px) */
+.hero-footer-bar {
+  position: relative;
+  width: 100%;
+  height: 91px;
+  padding: 0 40px 0 45px;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  /* Fica acima para os botões e textos serem totalmente interativos */
+  background: transparent;
+}
+
+.hero-tag-nao-perca {
+  font-family: var(--font-pixel);
+  font-size: 22px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  color: var(--color-white);
+  text-shadow: 0 0 20px rgba(192, 255, 0, 0.25);
+  margin-right: 20px;
+  white-space: nowrap;
+}
+
+.hero-description {
+  font-size: 13.5px;
+  font-weight: 400;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 250px;
+}
+
+.btn-jogar-agora {
+  margin-left: auto;
+  margin-right: 20px;
+  height: 44px;
+  padding: 0 26px;
+  border-radius: 20px;
+  background: var(--color-white);
+  color: #020202;
+  font-size: 16px;
+  font-weight: 700;
+  box-shadow: 0 4px 50px rgba(192, 255, 0, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-jogar-agora:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 60px rgba(192, 255, 0, 0.6);
+}
+
+.btn-info-icon {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease;
+  flex-shrink: 0;
+}
+
+.btn-info-icon:hover {
+  transform: scale(1.15);
+}
+
+.btn-info-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Ayrton Senna recortado saltando para fora da moldura (Efeito 3D e profundidade) */
+.hero-popout-senna {
+  position: absolute;
+  right: 0px;
+  top: -65px;
+  /* sai para fora da moldura por cima */
+  width: 412px;
+  height: 386px;
+  /* termina exatamente antes da barra de botões */
+  object-fit: cover;
+  object-position: top right;
+  border-radius: 0 0 45px 0;
+  /* acompanha a curvatura interna */
+  z-index: 5;
+  pointer-events: none;
+  filter: drop-shadow(-15px 15px 30px rgba(0, 0, 0, 0.65));
+  transition: transform 0.4s ease;
+}
+
+.hero-3d-wrapper:hover .hero-popout-senna {
+  transform: translateY(-6px) scale(1.015);
+}
+
+
+
+/* Destaques da Semana: 404 x 443px */
+.highlights-column {
+  width: 404px;
+}
+
+.highlights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.highlight-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 400px;
+  height: 70px;
+  border-radius: 25px;
+  padding: 0 22px 0 8px;
+  gap: 16px;
+  text-decoration: none;
+  background:
+    radial-gradient(ellipse 110px 55px at 84% -10%, rgba(0, 0, 0, 0.78) 0%, transparent 100%),
+    radial-gradient(ellipse 180px 110px at 95% 65%, #C0FF00 0%, #abf600 25%, #84d800 45%, rgba(90, 160, 0, 0.35) 70%, transparent 88%),
+    linear-gradient(90deg, #020202 0%, #020202 54%, #060b01 64%, #182802 74%, #5b8e04 86%, #a9f005 95%, #C0FF00 100%),
+    #020202;
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.45),
+    inset 0 0 25px rgba(255, 255, 255, 0.12),
+    0 10px 30px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 25px;
+  padding: 1px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.15) 45%, rgba(192, 255, 0, 0.85) 100%);
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.highlight-item:hover {
+  transform: translateX(-4px);
+  box-shadow:
+    inset 0 1px 1px rgba(255, 255, 255, 0.6),
+    inset 0 0 25px rgba(255, 255, 255, 0.18),
+    0 12px 35px rgba(0, 0, 0, 0.9),
+    0 0 25px rgba(192, 255, 0, 0.3);
+}
+
+.hl-thumb {
+  width: 58px;
+  height: 58px;
+  border-radius: 20px;
+  object-fit: cover;
+  flex-shrink: 0;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.7);
+  z-index: 1;
+}
+
+.hl-text-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  z-index: 1;
+}
+
+.hl-game-title {
+  font-family: var(--font-main);
+  font-size: 19.5px;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: -0.3px;
+  line-height: 1.15;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hl-game-sub {
+  font-family: var(--font-main);
+  font-size: 14.5px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.15;
+  letter-spacing: -0.1px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.hl-arrow-icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-left: auto;
+  z-index: 3;
+}
+
+.hl-arrow-icon svg {
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+.highlight-mask-wrapper {
+  mask-image: linear-gradient(180deg, rgba(2, 2, 2, 1) 0%, rgba(2, 2, 2, 0) 84%);
+  -webkit-mask-image: linear-gradient(180deg, rgba(2, 2, 2, 1) 0%, rgba(2, 2, 2, 0) 84%);
+  height: 75px;
+  overflow: hidden;
+}
+
+/* ==========================================================================
+   SEÇÃO 2: DESCUBRA + ÚLTIMOS DOWNLOADS + SOBRE NÓS
+   ========================================================================== */
+.section-mid-row {
+  display: grid;
+  grid-template-columns: 825px 404px;
+  gap: 64px;
+  margin-bottom: 80px;
+}
+
+.mid-left-column {
+  width: 825px;
+}
+
+/* Descubra muito mais... Carrossel */
+.discover-carousel-container {
+  position: relative;
+  width: 100%;
+}
+
+.discover-carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 10px 0 25px;
+  mask-image: linear-gradient(90deg, #000 82%, transparent 98%);
+  -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent 98%);
+  margin-bottom: 50px;
+}
+
+.discover-track {
+  display: flex;
+  gap: 35px;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.discover-card {
+  position: relative;
+  flex: 0 0 301px;
+  height: 332px;
+  border-radius: 60px;
+  overflow: hidden;
+  box-shadow: 0 4px 36px 3px rgba(2, 2, 2, 1);
+  transition: transform 0.3s ease;
+}
+
+.discover-card:hover {
+  transform: translateY(-6px);
+}
+
+.discover-card.card-tilted {
+  transform: rotate(-4deg);
+}
+
+.discover-card.card-tilted:hover {
+  transform: rotate(-4deg) translateY(-6px);
+}
+
+.discover-card-bg {
+  position: absolute;
+  inset: 0;
+}
+
+.discover-card-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discover-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(2, 2, 2, 0) 25%, rgba(2, 2, 2, 0.85) 100%);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  border-radius: 60px;
+}
+
+.discover-fab {
+  position: absolute;
+  top: 35px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 5;
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+.discover-fab:hover {
+  transform: scale(1.12);
+  filter: brightness(1.1);
+}
+
+.fab-green-play {
+  left: 32px;
+  background: var(--color-green-neon);
+}
+
+.fab-green-play svg {
+  width: 20px;
+  height: 20px;
+  margin-left: 2px;
+}
+
+.fab-white-bag {
+  right: 32px;
+  background: var(--color-white);
+}
+
+.fab-white-bag svg {
+  width: 20px;
+  height: 20px;
+}
+
+.discover-card-content {
+  position: absolute;
+  left: 35px;
+  right: 25px;
+  bottom: 30px;
+  z-index: 4;
+}
+
+.discover-card-title {
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--color-white);
+  margin-bottom: 8px;
+}
+
+.discover-card-text {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.discover-card-text a {
+  text-decoration: underline;
+  color: var(--color-green-neon);
+}
+
+.carousel-next-btn {
+  position: absolute;
+  right: -5px;
+  top: calc(50% - 25px);
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #152003 0%, #040701 100%);
+  border: 1px solid rgba(192, 255, 0, 0.45);
+  box-shadow: 0 0 8px rgba(192, 255, 0, 0.15), 0 4px 14px rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  cursor: pointer;
+  opacity: 0.85;
+  transition: opacity 0.25s ease, box-shadow 0.25s ease, transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+
+.carousel-next-btn:hover {
+  opacity: 1;
+  transform: translateY(-50%) scale(1.06);
+  border-color: rgba(192, 255, 0, 0.8);
+  box-shadow: 0 0 14px rgba(192, 255, 0, 0.3), 0 6px 18px rgba(0, 0, 0, 0.9);
+  background: radial-gradient(circle at 35% 35%, #1f2e05 0%, #060901 100%);
+}
+
+.carousel-next-btn svg {
+  width: 22px;
+  height: 22px;
+  stroke: var(--color-green-neon);
+  opacity: 0.9;
+}
+
+/* Últimos downloads... Card (824 x 112px) */
+.title-downloads {
+  margin-top: 15px;
+}
+
+.downloads-bar-card {
+  width: 824px;
+  height: 112px;
+  border-radius: 40px;
+  background: linear-gradient(90deg, var(--color-green-neon) 0%, #4a6600 25%, #020202 55%);
+  border: 1.5px solid rgba(192, 255, 0, 0.5);
+  box-shadow: inset 5px 0 14px rgba(0, 0, 0, 0.55), 0 10px 40px rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  padding: 0 30px 0 18px;
+}
+
+.dl-game-thumb {
+  width: 82px;
+  height: 82px;
+  border-radius: 25px;
+  object-fit: cover;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dl-game-info {
+  margin-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.dl-game-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.dl-badges-row {
+  display: flex;
+  gap: 8px;
+}
+
+.dl-badge-tag {
+  background: var(--color-green-dark);
+  color: var(--color-white);
+  font-size: 14px;
+  font-weight: 700;
+  padding: 4px 15px;
+  border-radius: 15px;
+}
+
+.dl-progress-meta {
+  margin-left: auto;
+  text-align: right;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dl-eta {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.dl-bytes {
+  font-size: 15px;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dl-control-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 14px;
+  transition: transform 0.2s ease;
+}
+
+.dl-control-btn:hover {
+  transform: scale(1.1);
+}
+
+.btn-green-circle {
+  background: var(--color-green-neon);
+  margin-left: 20px;
+}
+
+.btn-green-circle svg {
+  width: 20px;
+  height: 20px;
+}
+
+.dl-pause-icon {
+  display: none;
+}
+
+.btn-green-circle.is-playing .dl-play-icon {
+  display: none;
+}
+
+.btn-green-circle.is-playing .dl-pause-icon {
+  display: block;
+}
+
+.btn-white-circle {
+  background: var(--color-white);
+}
+
+.btn-white-circle svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Coluna Direita: O que é Iara Games? (banner sobre nós 404 x 641px) */
+.mid-right-column {
+  width: 404px;
+}
+
+.link-arrow-right svg {
+  width: 36px;
+  height: 15px;
+  transition: transform 0.2s ease;
+}
+
+.link-arrow-right:hover svg {
+  transform: translateX(6px);
+}
+
+.about-card {
+  position: relative;
+  width: 404px;
+  height: 641px;
+  border-radius: 60px;
+  padding: 45px 36px;
+  background: linear-gradient(170deg, #020202 25%, #152000 55%, #6f9a00 80%, #d9ff7a 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+}
+
+.about-card-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.about-pill {
+  background: var(--color-white);
+  color: var(--color-bg);
+  padding: 6px 18px;
+  border-radius: 15px;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.about-icon-badges {
+  display: flex;
+  gap: 10px;
+}
+
+.about-icon-green {
+  width: 40px;
+  height: 35px;
+  border-radius: 15px;
+  background: var(--color-green-neon);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-icon-green svg {
+  width: 20px;
+  height: 20px;
+}
+
+.about-headline {
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 25px 0 20px;
+  color: var(--color-white);
+}
+
+.headline-green {
+  color: var(--color-green-neon);
+}
+
+.pixel-br {
+  font-family: var(--font-pixel);
+  font-size: 28px;
+  color: var(--color-green-neon);
+}
+
+.about-copy {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.35;
+  color: var(--color-white);
+  text-shadow: 0 4px 19px rgba(0, 0, 0, 1), 0 4px 21px rgba(0, 0, 0, 1);
+  max-width: 323px;
+}
+
+.about-fliperama-img {
+  position: absolute;
+  right: -25px;
+  bottom: -20px;
+  width: 330px;
+  height: 360px;
+  object-fit: contain;
+  transition: transform 0.4s ease;
+}
+
+.about-card:hover .about-fliperama-img {
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   SEÇÕES 3 E 4: PRATELEIRAS (Lançamentos e Cheiro de Nostalgia)
+   ========================================================================== */
+.section-shelf {
+  width: 1293px;
+  margin-top: 80px;
+}
+
+.shelf-container {
+  position: relative;
+  width: 100%;
+}
+
+.shelf-wrapper {
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(90deg, #000 84%, transparent 98%);
+  -webkit-mask-image: linear-gradient(90deg, #000 84%, transparent 98%);
+  padding-top: 5px;
+}
+
+.shelf-next {
+  top: 88px;
+  right: -8px;
+  transform: translateY(-50%);
+}
+
+.shelf-next:hover {
+  transform: translateY(-50%) scale(1.12);
+}
+
+.shelf-track {
+  display: flex;
+  gap: 48px;
+  transition: transform 0.5s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+/* Game Card (280.26 x 262.1px, border-radius 40px) */
+.game-card {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+}
+
+.game-card-thumb-wrap {
+  position: relative;
+  width: 280px;
+  height: 167px;
+  border-radius: 40px;
+  overflow: hidden;
+  box-shadow: 0 4px 37px 3px rgba(2, 2, 2, 1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-card:hover .game-card-thumb-wrap {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 45px rgba(192, 255, 0, 0.2);
+}
+
+.game-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge-adquirido {
+  position: absolute;
+  top: 10px;
+  right: 14px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.377) 100%);
+  border: 1px solid #FFFFFF;
+  border-radius: 50px;
+  padding: 2px 12px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.game-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 18px;
+}
+
+.game-card-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+}
+
+.badge-desconto {
+  border-radius: 50px;
+  padding: 2px 10px;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-green-neon);
+  background: linear-gradient(135deg, rgba(192, 255, 0, 0.35) 0%, rgba(115, 153, 0, 0) 100%);
+  border: 1px solid var(--color-green-neon);
+}
+
+.game-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.game-prices {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.price-cut {
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+  font-weight: 300;
+}
+
+.price-current {
+  color: var(--color-white);
+  font-weight: 400;
+}
+
+.platform-icons-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-icons-row svg {
+  width: 15px;
+  height: 15px;
+  fill: var(--color-white);
+}
+
+/* ==========================================================================
+   RODAPÉ (Footer — Estrutura e Identidade Iara Games)
+   ========================================================================== */
+.site-footer {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+  padding-top: 30px;
+  overflow: hidden;
+  background: #020202;
+}
+
+/* Divisor superior decorativo com asterisco/estrela */
+.footer-top-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 1293px;
+  margin: 0 auto 55px;
+}
+
+.divider-line {
+  flex: 1;
+  height: 1px;
+}
+
+.footer-top-divider .divider-line:first-child {
+  background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.08) 25%, rgba(255, 255, 255, 0.22) 80%, rgba(255, 255, 255, 0.35) 100%);
+}
+
+.footer-top-divider .divider-line:last-child {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.22) 20%, rgba(255, 255, 255, 0.08) 75%, transparent 100%);
+}
+
+.divider-star {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+  transition: transform 0.4s ease, color 0.3s ease;
+}
+
+.divider-star:hover {
+  transform: scale(1.15);
+  color: var(--color-green-neon);
+  filter: drop-shadow(0 0 8px rgba(192, 255, 0, 0.45));
+}
+
+/* Container de 1293px */
+.footer-container {
+  width: 100%;
+  max-width: 1293px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+}
+
+/* Grid com 4 colunas */
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 1.35fr 1.15fr 2.35fr;
+  gap: 50px;
+  align-items: start;
+}
+
+.footer-col-title {
+  font-family: var(--font-main);
+  font-size: 17px;
+  font-weight: 500;
+  color: #b9d977;
+  /* Tom verde oliva claro característico da ID */
+  margin-bottom: 24px;
+  letter-spacing: -0.2px;
+}
+
+.footer-nav-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.footer-nav-list a {
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.65);
+  text-decoration: none;
+  transition: color 0.2s ease, transform 0.2s ease;
+  display: inline-block;
+}
+
+.footer-nav-list a:hover {
+  color: var(--color-green-neon);
+  transform: translateX(4px);
+}
+
+/* Redes Sociais */
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.footer-social-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.7);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.25s ease;
+}
+
+.footer-social-btn:hover {
+  color: var(--color-bg);
+  background: var(--color-green-neon);
+  border-color: var(--color-green-neon);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(192, 255, 0, 0.35);
+}
+
+/* Coluna Newsletter */
+.footer-col-newsletter {
+  max-width: 460px;
+}
+
+.newsletter-headline {
+  font-family: var(--font-main);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.3;
+  margin-bottom: 22px;
+  letter-spacing: -0.3px;
+}
+
+.newsletter-form {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.newsletter-input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0 18px;
+  font-family: var(--font-main);
+  font-size: 15px;
+  color: var(--color-white);
+  outline: none;
+  transition: border-color 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.newsletter-input:focus {
+  border-color: var(--color-green-neon);
+  background: rgba(192, 255, 0, 0.05);
+  box-shadow: 0 0 15px rgba(192, 255, 0, 0.2);
+}
+
+.newsletter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 48px;
+  padding: 0 26px;
+  border-radius: 12px;
+  border: 1px solid rgb(191, 255, 0);
+  color: #fff;
+  font: 500 15px/1 "Inter", var(--font-main), system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  white-space: nowrap;
+  background:
+    linear-gradient(180deg,
+      rgba(192, 255, 0, 0.05) 0%,
+      rgba(192, 255, 0, 0.02) 45%,
+      rgba(192, 255, 0, 0.02) 60%,
+      rgba(192, 255, 0, 0.05) 100%),
+    #0b0b0c;
+  box-shadow:
+    inset 0 1px 1px rgba(192, 255, 0, 0.55),
+    inset 0 -1px 1px rgba(192, 255, 0, 0.35),
+    inset 0 0 14px rgba(192, 255, 0, 0.07),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+.newsletter-btn:hover {
+  transform: translateY(-2px);
+  border: 1px solid rgba(192, 255, 0, 0.55);
+  color: #f4ffd1;
+  background:
+    radial-gradient(120% 150% at 50% 55%,
+      rgba(192, 255, 0, 0.55) 0%,
+      rgba(192, 255, 0, 0.18) 45%,
+      transparent 75%),
+    linear-gradient(180deg, #1d2600 0%, #0e1400 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 14px rgba(192, 255, 0, 0.3),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(192, 255, 0, 0.28);
+  filter: brightness(1.15);
+}
+
+.newsletter-btn:active {
+  transform: translateY(0);
+}
+
+/* Backdrop Gradiente Verde Neon e Marca D'água "IaraGames" */
+.footer-brand-backdrop {
+  position: relative;
+  width: 100%;
+  margin-top: 0px;
+  height: 300px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* Camada luminosa do gradiente verde neon da ID (100% Linear) */
+.footer-glow-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 0%, rgba(16, 46, 0, 0.2) 25%, rgba(107, 165, 60, 0.37) 55%, rgba(138, 190, 34, 0.85) 85%, #C0FF00 100%);
+  opacity: 1;
+  z-index: 1;
+}
+
+/* Tipografia gigante vazada/integrada com o brilho */
+.footer-brand-title {
+  position: relative;
+  z-index: 2;
+  font-family: var(--font-main);
+  font-size: clamp(130px, 17vw, 270px);
+  font-weight: 900;
+  line-height: 0.8;
+  letter-spacing: -0.04em;
+  text-align: center;
+  white-space: nowrap;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.20) 45%, rgba(255, 255, 255, 0.95) 80%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  transform: translateY(22%);
+  user-select: none;
+}
+
+/* ==========================================================================
+   RESPONSIVIDADE PROPORCIONAL
+   ========================================================================== */
+@media (max-width: 1440px) {
+  .page-container {
+    zoom: 0.88;
+  }
+}

@@ -1,0 +1,892 @@
+/* ==========================================================================
+   IARA GAMES — PÁGINA DA BIBLIOTECA DE JOGOS (biblioteca.css)
+   ========================================================================== */
+
+/* Layout específico da Biblioteca */
+.library-main-container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 150px 40px 100px 40px;
+  position: relative;
+  z-index: 2;
+}
+
+/* ==========================================================================
+   HEADER SUPERIOR DA BIBLIOTECA (Estilo Loja / Catálogo)
+   Resultados + View Mode Toggle (Grade / Lista) + Search Box
+   ========================================================================== */
+.catalog-top-header,
+.library-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin-bottom: 28px;
+}
+
+.catalog-results-wrap,
+.library-results-wrap {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.catalog-results-title,
+.library-results-title {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--color-white);
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.catalog-count-badge,
+.library-count-badge {
+  color: var(--color-white);
+  font-weight: 800;
+}
+
+.catalog-results-label,
+.library-results-label {
+  font-size: 26px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: -0.3px;
+}
+
+/* Área Direita: Alternador de Visualização + Input de Busca */
+.catalog-top-controls,
+.library-top-controls {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Alternador Grade / Lista (estilo exato do topo do catálogo) */
+.view-mode-toggle {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.view-mode-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 7px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-mode-btn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.view-mode-btn:hover {
+  color: var(--color-white);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.view-mode-btn.active {
+  color: var(--color-green-neon);
+  background: rgba(192, 255, 0, 0.12);
+  border: 1px solid rgba(192, 255, 0, 0.35);
+  box-shadow: 0 0 12px rgba(192, 255, 0, 0.15);
+}
+
+/* Barra de Busca no Topo (Search a game) */
+.catalog-search-box {
+  width: 320px;
+  height: 44px;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  padding: 0 14px;
+  gap: 10px;
+  transition: all 0.25s ease;
+}
+
+.catalog-search-box:focus-within {
+  background: rgba(192, 255, 0, 0.03);
+  border-color: var(--color-green-neon);
+  box-shadow: 0 0 18px rgba(192, 255, 0, 0.2), inset 0 0 10px rgba(192, 255, 0, 0.05);
+}
+
+.catalog-search-icon {
+  width: 16px;
+  height: 16px;
+  stroke: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+  transition: stroke 0.2s ease;
+}
+
+.catalog-search-box:focus-within .catalog-search-icon {
+  stroke: var(--color-green-neon);
+}
+
+.catalog-search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-family: var(--font-main);
+  font-size: 14.5px;
+  font-weight: 500;
+}
+
+.catalog-search-input::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.catalog-clear-search {
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  display: none;
+  padding: 2px;
+}
+
+.catalog-clear-search:hover {
+  color: var(--color-white);
+}
+
+/* ==========================================================================
+   SIDEBAR LATERAL ESQUERDA (Estilo Loja / Catálogo)
+   ========================================================================== */
+.library-content-layout {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 34px;
+  align-items: start;
+}
+
+.catalog-sidebar,
+.library-filters-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+  background: transparent;
+  position: sticky;
+  top: 130px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.filter-group-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  user-select: none;
+  padding-bottom: 8px;
+}
+
+.filter-group-title {
+  font-size: 11.5px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.filter-group-chevron {
+  width: 14px;
+  height: 14px;
+  color: rgba(255, 255, 255, 0.4);
+  transition: transform 0.25s ease, color 0.2s ease;
+}
+
+.filter-group-header:hover .filter-group-title,
+.filter-group-header:hover .filter-group-chevron {
+  color: var(--color-green-neon);
+}
+
+.filter-group.collapsed .filter-group-chevron {
+  transform: rotate(-90deg);
+}
+
+.filter-group.collapsed .filter-group-body {
+  display: none;
+}
+
+/* Lista de Gêneros */
+.genre-filter-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.genre-filter-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.genre-filter-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-white);
+  transform: translateX(3px);
+}
+
+.genre-filter-item.active {
+  background: rgba(192, 255, 0, 0.12);
+  color: var(--color-green-neon);
+  font-weight: 700;
+  border-left: none; /* Sem borda verde na esquerda como requisitado */
+}
+
+.genre-item-chevron {
+  width: 12px;
+  height: 12px;
+  opacity: 0.35;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.genre-filter-item:hover .genre-item-chevron,
+.genre-filter-item.active .genre-item-chevron {
+  opacity: 1;
+  color: var(--color-green-neon);
+  transform: translateX(2px);
+}
+
+/* Checkboxes para Status e Coleções na Sidebar */
+.sidebar-checkbox-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.sidebar-checkbox-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.sidebar-checkbox-item:hover {
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--color-white);
+  transform: translateX(2px);
+}
+
+.sidebar-checkbox-item input[type="checkbox"] {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: 1.5px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.05);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  margin: 0;
+  position: relative;
+}
+
+.sidebar-checkbox-item input[type="checkbox"]:hover {
+  border-color: rgba(192, 255, 0, 0.6);
+}
+
+.sidebar-checkbox-item input[type="checkbox"]:checked {
+  background: var(--color-green-neon);
+  border-color: var(--color-green-neon);
+  box-shadow: 0 0 8px rgba(192, 255, 0, 0.4);
+}
+
+.sidebar-checkbox-item input[type="checkbox"]:checked::after {
+  content: "";
+  display: block;
+  width: 4px;
+  height: 8px;
+  border: solid #020202;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  margin-top: -2px;
+}
+
+/* Área Direita: Barra Superior de Plataformas + Ordenação + Grid de Jogos */
+.library-main-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.library-controls-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 14px 20px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.filter-chips-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip-label {
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  margin-right: 4px;
+}
+
+.filter-chip {
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.filter-chip:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--color-white);
+}
+
+.filter-chip.active {
+  background: rgba(192, 255, 0, 0.15);
+  border-color: var(--color-green-neon);
+  color: var(--color-green-neon);
+  box-shadow: 0 0 10px rgba(192, 255, 0, 0.2);
+}
+
+.filter-chip svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* Dropdown de Ordenação */
+.sort-by-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sort-by-label {
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.sort-select-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-family: var(--font-main);
+  font-size: 13.5px;
+  font-weight: 700;
+  color: var(--color-white);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.2s ease;
+}
+
+.sort-select-btn:hover {
+  border-color: var(--color-green-neon);
+}
+
+.sort-select-btn svg {
+  width: 12px;
+  height: 12px;
+  transition: transform 0.2s ease;
+}
+
+.sort-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  width: 180px;
+  background: #0e1205;
+  border: 1.5px solid rgba(192, 255, 0, 0.3);
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
+  padding: 6px;
+  display: none;
+  flex-direction: column;
+  z-index: 50;
+}
+
+.sort-dropdown-menu.show {
+  display: flex;
+}
+
+.sort-option-item {
+  padding: 8px 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.75);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sort-option-item:hover {
+  background: rgba(192, 255, 0, 0.15);
+  color: var(--color-green-neon);
+}
+
+.sort-option-item.selected {
+  background: rgba(192, 255, 0, 0.2);
+  color: var(--color-green-neon);
+  font-weight: 700;
+}
+
+/* ==========================================================================
+   GRID DE JOGOS DA BIBLIOTECA (Estilo da referência adaptado à ID Iara Games)
+   ========================================================================== */
+.library-games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 26px;
+  margin-top: 6px;
+}
+
+.library-card {
+  position: relative;
+  background: linear-gradient(180deg, rgba(25, 35, 8, 0.3) 0%, rgba(5, 7, 2, 0.6) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  transition: transform 0.28s ease, border-color 0.28s ease, box-shadow 0.28s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.library-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(192, 255, 0, 0.5);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(192, 255, 0, 0.15);
+}
+
+.library-card-thumb-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+  background: #020202;
+}
+
+.library-card-thumb {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.library-card:hover .library-card-thumb {
+  transform: scale(1.05);
+}
+
+/* Overlay no hover com botão Jogar / Instalar */
+.library-card-action-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.72);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 5;
+  transition: opacity 0.25s ease;
+}
+
+.library-card:hover .library-card-action-overlay,
+.library-card-thumb-wrap:hover .library-card-action-overlay {
+  opacity: 1;
+}
+
+.library-play-btn {
+  padding: 10px 24px;
+  background: linear-gradient(-1deg, rgba(192, 255, 0, 1) 34%, rgba(255, 255, 255, 1) 94%);
+  border: none;
+  border-radius: 12px;
+  font-family: var(--font-main);
+  font-size: 14px;
+  font-weight: 800;
+  color: #020202;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(192, 255, 0, 0.4);
+  transform: scale(0.92);
+  transition: transform 0.2s ease, filter 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.library-card:hover .library-play-btn {
+  transform: scale(1);
+}
+
+.library-play-btn:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+.library-install-btn,
+.btn-search {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  height: 38px;
+  padding: 0 16px;
+  border-radius: 12px;
+  border: 1px solid rgba(192, 255, 0, 0.38);
+  color: #fff;
+  font: 500 15px/1 "Inter", var(--font-main), system-ui, -apple-system, sans-serif;
+  cursor: pointer;
+  background:
+    linear-gradient(180deg,
+      rgba(192, 255, 0, 0.13) 0%,
+      rgba(192, 255, 0, 0.05) 45%,
+      rgba(192, 255, 0, 0.03) 60%,
+      rgba(192, 255, 0, 0.10) 100%),
+    #1b1b1e;
+  box-shadow:
+    inset 0 1px 1px rgba(192, 255, 0, 0.55),
+    inset 0 -1px 1px rgba(192, 255, 0, 0.35),
+    inset 0 0 14px rgba(192, 255, 0, 0.07),
+    0 6px 16px rgba(0, 0, 0, 0.45);
+  transition: all 0.25s ease;
+}
+
+.library-install-btn svg,
+.btn-search svg {
+  width: 15px;
+  height: 15px;
+  color: #C0FF00;
+  stroke: #C0FF00;
+  fill: none;
+  stroke-width: 2.2;
+  transition: stroke 0.2s ease, color 0.2s ease;
+}
+
+.library-install-btn:hover,
+.btn-search:hover {
+  transform: translateY(-2px);
+  border: 1px solid rgba(192, 255, 0, 0.55);
+  color: #f4ffd1;
+  background:
+    radial-gradient(120% 150% at 50% 55%,
+      rgba(192, 255, 0, 0.55) 0%,
+      rgba(192, 255, 0, 0.18) 45%,
+      transparent 75%),
+    linear-gradient(180deg, #1d2600 0%, #0e1400 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    inset 0 0 14px rgba(192, 255, 0, 0.3),
+    0 0 0 1px rgba(0, 0, 0, 0.55),
+    0 4px 18px rgba(192, 255, 0, 0.28);
+  filter: brightness(1.15);
+}
+
+.library-install-btn:hover svg,
+.btn-search:hover svg {
+  color: #f4ffd1;
+  stroke: #f4ffd1;
+}
+
+.library-install-btn:active,
+.btn-search:active {
+  transform: translateY(0);
+}
+
+/* Badges sobre a capa (Instalado, Na Nuvem, Conquistas) */
+.library-badge-installed {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(192, 255, 0, 0.95);
+  color: #020202;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 4px 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.library-badge-cloud {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  background: rgba(2, 2, 2, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 11px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 8px;
+  backdrop-filter: blur(8px);
+}
+
+.library-favorite-btn {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: rgba(2, 2, 2, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: rgba(255, 255, 255, 0.55);
+  transition: all 0.2s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 6;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.library-favorite-btn svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  transition: all 0.2s ease;
+}
+
+.library-favorite-btn:hover {
+  transform: scale(1.12);
+  border-color: var(--color-green-neon);
+  color: var(--color-green-neon);
+  background: rgba(192, 255, 0, 0.12);
+  box-shadow: 0 0 14px rgba(192, 255, 0, 0.35);
+}
+
+.library-favorite-btn.active {
+  color: var(--color-green-neon);
+  border-color: var(--color-green-neon);
+  background: rgba(2, 2, 2, 0.85);
+  box-shadow: 0 0 12px rgba(192, 255, 0, 0.4);
+}
+
+.library-favorite-btn.active svg {
+  fill: var(--color-green-neon);
+  stroke: var(--color-green-neon);
+}
+
+/* Detalhes do Card */
+.library-card-body {
+  padding: 16px 18px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  flex: 1;
+}
+
+.library-card-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+  line-height: 1.25;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.library-card-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12.5px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+}
+
+.hours-played {
+  color: rgba(255, 255, 255, 0.65);
+  font-weight: 600;
+}
+
+.library-card-progress {
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 2px;
+}
+
+.library-progress-bar {
+  height: 100%;
+  background: var(--color-green-neon);
+  box-shadow: 0 0 8px rgba(192, 255, 0, 0.6);
+}
+
+.library-card-footer-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  font-size: 11.5px;
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.platform-icons-mini {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.platform-icons-mini svg {
+  width: 13px;
+  height: 13px;
+  fill: rgba(255, 255, 255, 0.4);
+}
+
+/* Modo Lista (View Mode List) */
+.library-games-grid.list-view {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.library-games-grid.list-view .library-card {
+  flex-direction: row;
+  height: 84px;
+  border-radius: 16px;
+  align-items: center;
+}
+
+.library-games-grid.list-view .library-card-thumb-wrap {
+  width: 130px;
+  height: 100%;
+  flex-shrink: 0;
+}
+
+.library-games-grid.list-view .library-card-body {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  gap: 20px;
+  width: 100%;
+}
+
+.library-games-grid.list-view .library-card-progress {
+  display: none;
+}
+
+.library-games-grid.list-view .library-badge-installed,
+.library-games-grid.list-view .library-badge-cloud,
+.library-games-grid.list-view .library-favorite-btn {
+  display: none;
+}
+
+.library-games-grid.list-view .library-card-action-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(2, 2, 2, 0.7);
+  backdrop-filter: blur(2px);
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+  z-index: 10;
+}
+
+.library-games-grid.list-view .library-card:hover .library-card-action-overlay {
+  opacity: 1;
+}
+
+/* Responsividade da Biblioteca */
+@media (max-width: 1024px) {
+  .library-content-layout {
+    grid-template-columns: 1fr;
+  }
+  .catalog-sidebar,
+  .library-filters-sidebar {
+    display: none; /* Em telas menores, esconde sidebar lateral */
+  }
+}
+
+@media (max-width: 768px) {
+  .catalog-top-header,
+  .library-top-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .catalog-top-controls,
+  .library-top-controls {
+    width: 100%;
+    justify-content: space-between;
+  }
+  .catalog-search-box {
+    width: 100%;
+  }
+}

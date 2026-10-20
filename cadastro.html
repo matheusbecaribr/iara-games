@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IARA GAMES — Criar conta</title>
+  <meta name="description"
+    content="Crie sua conta Iara Games agora mesmo e aproveite os melhores jogos brasileiros independentes.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="cadastro.css">
+</head>
+
+<body>
+
+  <!-- Background base decorativo com grid e vinheta radial da página inteira (por baixo de tudo) -->
+  <div class="login-bg-base" aria-hidden="true"></div>
+
+  <!-- Container principal do layout (Centralizado, 1920x1080 canvas proporcional) -->
+  <main class="login-screen-wrap">
+    <div class="login-inner-layout">
+
+      <!-- Coluna Esquerda: Banana 3D Pixels Verde Animada com overlay exclusiva sobre ela -->
+      <section class="login-visual-column" aria-hidden="true">
+        <div class="banana-glow-wrapper">
+          <img src="assets/banana-3d-pixels.gif" alt="Banana 3D Pixels Verde Animada" class="banana-3d-img">
+        </div>
+      </section>
+
+      <!-- Coluna Direita: Formulário de Cadastro e Identidade (Totalmente livre de qualquer overlay) -->
+      <section class="login-form-column">
+
+        <!-- Topo: Botão Voltar + Avatar Emblem (+) + Título -->
+        <header class="login-header-group">
+          <a href="login.html" class="login-back-btn" aria-label="Voltar para a página de login">
+            <img src="assets/login-back-arrow.svg" alt="" class="back-arrow-icon" aria-hidden="true">
+          </a>
+
+          <div class="login-avatar-emblem-wrap">
+            <img src="assets/register-avatar-emblem.png" alt="Criar Conta Iara Games" class="login-avatar-emblem-img">
+          </div>
+
+          <h1 class="login-title register-title">
+            <span class="title-green-crie">Crie</span> sua conta<br>
+            <em class="title-italic-iara-cadastro">Iara agora mesmo!</em>
+          </h1>
+        </header>
+
+        <!-- Formulário de Criação de Conta -->
+        <form class="login-form" id="register-form" onsubmit="event.preventDefault(); window.location.href='index.html';">
+
+          <!-- Campo Nome -->
+          <div class="input-field-group">
+            <div class="input-header-row">
+              <label for="name" class="input-label">Nome:</label>
+            </div>
+            <div class="input-box-wrapper">
+              <span class="input-icon-left" aria-hidden="true">
+                <img src="assets/register-icon-user.svg" alt="">
+              </span>
+              <input type="text" id="name" name="name" class="login-input" placeholder="Escreva seu nome aqui..."
+                required autocomplete="name">
+            </div>
+          </div>
+
+          <!-- Campo Email -->
+          <div class="input-field-group">
+            <div class="input-header-row">
+              <label for="email" class="input-label">E-mail:</label>
+            </div>
+            <div class="input-box-wrapper">
+              <span class="input-icon-left" aria-hidden="true">
+                <img src="assets/icon-email.svg" alt="">
+              </span>
+              <input type="email" id="email" name="email" class="login-input" placeholder="Escreva seu e-mail aqui..."
+                required autocomplete="email">
+            </div>
+          </div>
+
+          <!-- Campo Senha -->
+          <div class="input-field-group">
+            <div class="input-header-row">
+              <label for="password" class="input-label">Senha:</label>
+            </div>
+            <div class="input-box-wrapper">
+              <span class="input-icon-left" aria-hidden="true">
+                <img src="assets/icon-lock.svg" alt="">
+              </span>
+              <input type="password" id="password" name="password" class="login-input"
+                placeholder="Digite sua senha aqui..." required autocomplete="new-password">
+              <button type="button" class="password-toggle-btn" id="password-toggle"
+                aria-label="Mostrar ou ocultar senha">
+                <img src="assets/icon-eye.svg" alt="" id="eye-icon">
+              </button>
+            </div>
+          </div>
+
+          <!-- Botão Criar Conta Neon -->
+          <button type="submit" class="login-submit-btn register-submit-btn" id="register-submit">
+            Criar conta
+          </button>
+
+          <!-- Link para Página de Login -->
+          <div class="signup-link-wrapper">
+            <a href="login.html" class="signup-link">Já tem conta? Entre clicando aqui.</a>
+          </div>
+
+          <!-- Divisor "Ou" -->
+          <div class="login-divider-row" aria-hidden="true">
+            <span class="divider-line"></span>
+            <span class="divider-text">Ou</span>
+            <span class="divider-line"></span>
+          </div>
+
+          <!-- Botão Entrar com Google -->
+          <button type="button" class="google-login-btn" id="google-login">
+            <img src="assets/google-icon.png" alt="Google" class="google-icon-img">
+            <span>Entrar com o Google</span>
+          </button>
+
+        </form>
+
+        <!-- Rodapé do formulário: Copyright e Logotipo Iara Games -->
+        <footer class="login-footer-row">
+          <p class="login-copyright">
+            ©2026 Todos os direitos reservados.<br>
+            Iara Games®
+          </p>
+          <a href="index.html" class="login-logo-link" aria-label="Iara Games Home">
+            <img src="assets/logo-iara.png" alt="Iara Games" class="login-footer-logo">
+          </a>
+        </footer>
+
+      </section>
+
+    </div>
+  </main>
+
+  <script>
+    // Alternância de visibilidade da senha
+    const passwordInput = document.getElementById('password');
+    const toggleBtn = document.getElementById('password-toggle');
+
+    if (toggleBtn && passwordInput) {
+      toggleBtn.addEventListener('click', () => {
+        const isPassword = passwordInput.type === 'password';
+        passwordInput.type = isPassword ? 'text' : 'password';
+        toggleBtn.classList.toggle('active', isPassword);
+      });
+    }
+  </script>
+</body>
+
+</html>

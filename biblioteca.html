@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>IARA GAMES — Minha Biblioteca</title>
+  <meta name="description"
+    content="Sua biblioteca de jogos na Iara Games. Acesse, gerencie e jogue seus títulos independentes brasileiros.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Silkscreen:wght@700&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,300;1,400;1,500;1,600;1,700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="biblioteca.css">
+</head>
+
+<body>
+
+  <!-- ===== MENU SUPERIOR (menu-cima: 1920x120px) ===== -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="logo-link" id="logo" aria-label="Iara Games">
+        <img src="assets/logo-iara.png" alt="Iara Games Logo" class="brand-logo">
+      </a>
+
+      <div class="topbar-center">
+        <!-- Input de busca da plataforma -->
+        <form class="search-bar" id="search-form" role="search" onsubmit="event.preventDefault();">
+          <svg class="search-icon" viewBox="0 0 20 20" fill="none">
+            <circle cx="9" cy="9" r="6" stroke="#C0FF00" stroke-width="1.8" />
+            <path d="M13.5 13.5L17.5 17.5" stroke="#C0FF00" stroke-width="1.8" stroke-linecap="round" />
+          </svg>
+          <input id="search-input" type="search" placeholder="O que quer jogar hoje?">
+          <button type="button" class="filter-btn" id="filter-btn" aria-label="Filtros">
+            <svg viewBox="0 0 20 19" fill="none">
+              <path d="M3 5h14M3 10h14M3 15h14" stroke="#666" stroke-width="1.8" stroke-linecap="round" />
+              <circle cx="13" cy="5" r="2" fill="#020202" stroke="#666" stroke-width="1.5" />
+              <circle cx="7" cy="10" r="2" fill="#020202" stroke="#666" stroke-width="1.5" />
+              <circle cx="13" cy="15" r="2" fill="#020202" stroke="#666" stroke-width="1.5" />
+            </svg>
+          </button>
+        </form>
+
+        <nav class="nav-links">
+          <a href="index.html" class="nav-item" id="nav-explorar">Início</a>
+          <a href="catalogo.html" class="nav-item" id="nav-catalogo">Catálogo</a>
+          <button class="nav-item nav-dropdown" id="nav-categorias">
+            Categorias
+            <svg viewBox="0 0 12 8" fill="none">
+              <path d="M1 1.5L6 6.5L11 1.5" stroke="#666666" stroke-width="1.8" stroke-linecap="round" />
+            </svg>
+          </button>
+        </nav>
+      </div>
+
+      <div class="user-profile">
+        <div class="user-profile-trigger" id="user-profile-trigger" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false" aria-label="Abrir menu do usuário">
+          <div class="user-greeting">
+            <span class="greet-time">Boa tarde, </span><span class="greet-name">Matheus!</span>
+          </div>
+          <div class="user-avatar-wrap">
+            <img src="assets/avatar-user.png" alt="Matheus" class="user-avatar">
+            <span class="status-online"></span>
+          </div>
+        </div>
+
+        <!-- DROPDOWN MENU DO USUÁRIO (FIGMA: menu usuario #350:1452) -->
+        <div class="user-dropdown-menu" id="user-dropdown-menu" role="menu" aria-label="Menu do Usuário">
+          <!-- Topo: Avatar Câmera, Nome, Status e Botão Editar Pen -->
+          <div class="user-menu-header">
+            <div class="user-menu-avatar-box">
+              <svg class="user-menu-camera-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/>
+                <circle cx="12" cy="13" r="4"/>
+              </svg>
+              <span class="user-menu-status-dot"></span>
+            </div>
+            <div class="user-menu-info">
+              <span class="user-menu-name">Matheus Becari</span>
+              <span class="user-menu-status">Online</span>
+            </div>
+            <button type="button" class="user-menu-edit-btn" aria-label="Editar Perfil">
+              <svg viewBox="0 0 24 24" fill="currentColor">
+                <path d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04a1 1 0 0 0 0-1.41l-2.34-2.34a1 1 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"/>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Divisor horizontal sutil -->
+          <div class="user-menu-divider"></div>
+
+          <!-- Lista de Itens do Menu -->
+          <div class="user-menu-items">
+            <a href="#" class="user-menu-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+                <line x1="16" y1="13" x2="8" y2="13"/>
+                <line x1="16" y1="17" x2="8" y2="17"/>
+              </svg>
+              <span>Privacidade</span>
+            </a>
+
+            <a href="#" class="user-menu-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="4" y="11" width="16" height="11" rx="3" stroke-width="2"/>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke-width="2"/>
+                <circle cx="12" cy="16" r="1.5" fill="currentColor"/>
+              </svg>
+              <span>Segurança</span>
+            </a>
+
+            <a href="#" class="user-menu-item" role="menuitem">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 3h12l2 5v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V8l2-5z"/>
+                <line x1="4" y1="8" x2="20" y2="8"/>
+                <path d="M9 11a3 3 0 0 0 6 0"/>
+              </svg>
+              <span>Histórico de compras</span>
+            </a>
+          </div>
+
+          <!-- Botão Encerrar Sessão -->
+          <a href="login.html" class="user-menu-logout-btn" role="menuitem">
+            <svg viewBox="0 0 24 24" fill="none" stroke="#FF2B2B" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+              <polyline points="16 17 21 12 16 7"/>
+              <line x1="21" y1="12" x2="9" y2="12"/>
+            </svg>
+            <span>Encerrar sessão</span>
+          </a>
+        </div>
+        <button class="header-icon-btn" id="notif-btn" aria-label="Notificações">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" stroke="#fff" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" />
+            <path d="M13.73 21a2 2 0 0 1-3.46 0" stroke="#fff" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <span class="header-badge">2</span>
+        </button>
+        <button class="header-icon-btn" id="cart-btn" aria-label="Carrinho">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M6 6h15l-1.5 9h-13z" stroke="#fff" stroke-width="2" stroke-linejoin="round" />
+            <circle cx="9" cy="20" r="1" stroke="#fff" stroke-width="2" />
+            <circle cx="18" cy="20" r="1" stroke="#fff" stroke-width="2" />
+          </svg>
+          <span class="header-badge" id="cart-count">0</span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ===== MENU LATERAL DIREITO FIXO (Com o 4º ícone ativo na biblioteca) ===== -->
+  <aside class="sidebar-dock">
+    <div class="dock-group dock-top">
+      <button class="dock-collapse-arrow" aria-label="Recolher"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+      <!-- 1º ícone: Início -->
+      <a href="index.html" class="dock-btn" id="dock-home" aria-label="Início">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M3 10.5L12 3l9 7.5v9.5a1.5 1.5 0 0 1-1.5 1.5h-15A1.5 1.5 0 0 1 3 20v-9.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <!-- 2º ícone: Catálogo / Loja -->
+      <a href="catalogo.html" class="dock-btn" id="dock-store" aria-label="Catálogo">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="3.5" y="8" width="17" height="13" rx="3.5" stroke="currentColor" stroke-width="2" />
+          <path d="M8.5 8V6a3.5 3.5 0 0 1 7 0v2" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </a>
+    </div>
+
+    <div class="dock-group dock-main">
+      <button class="dock-collapse-arrow" aria-label="Recolher"><svg viewBox="0 0 24 24" fill="none"><path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" /></svg></button>
+      <!-- 3º ícone: Favoritos -->
+      <a href="favoritos.html" class="dock-btn" id="dock-bookmark" aria-label="Favoritos">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M6 3.5h12a1.5 1.5 0 0 1 1.5 1.5v15.5l-7.5-4.5-7.5 4.5V5a1.5 1.5 0 0 1 1.5-1.5z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </a>
+      <!-- 4º ícone: Biblioteca de Jogos (ATIVO AQUI!) -->
+      <a href="biblioteca.html" class="dock-btn active" id="dock-library" aria-label="Biblioteca">
+        <svg viewBox="0 0 24 24" fill="none">
+          <rect x="4" y="3.5" width="16" height="17" rx="3" stroke="currentColor" stroke-width="2" />
+          <line x1="9" y1="3.5" x2="9" y2="20.5" stroke="currentColor" stroke-width="2" />
+          <path d="M13 17h4" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+        </svg>
+      </a>
+      <!-- 5º ícone: Configurações -->
+      <button class="dock-btn" id="dock-settings" aria-label="Configurações">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3.2" stroke="currentColor" stroke-width="2" />
+          <path d="M12 2.5a2.2 2.2 0 0 1 2.2 2.2v.3a1.5 1.5 0 0 0 1.2 1.5 2.2 2.2 0 0 1 1.6 1.6 1.5 1.5 0 0 0 1.5 1.2h.3a2.2 2.2 0 0 1 2.2 2.2 2.2 2.2 0 0 1-2.2 2.2h-.3a1.5 1.5 0 0 0-1.5 1.2 2.2 2.2 0 0 1-1.6 1.6 1.5 1.5 0 0 0-1.2 1.5v.3a2.2 2.2 0 0 1-2.2 2.2 2.2 2.2 0 0 1-2.2-2.2v-.3a1.5 1.5 0 0 0-1.2-1.5 2.2 2.2 0 0 1-1.6-1.6 1.5 1.5 0 0 0-1.5-1.2h-.3a2.2 2.2 0 0 1-2.2-2.2 2.2 2.2 0 0 1 2.2-2.2h.3a1.5 1.5 0 0 0 1.5-1.2 2.2 2.2 0 0 1 1.6-1.6 1.5 1.5 0 0 0 1.2-1.5v-.3a2.2 2.2 0 0 1 2.2-2.2z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" />
+        </svg>
+      </button>
+      <!-- 6º ícone: Amigos / Comunidade -->
+      <button class="dock-btn" id="dock-friends" aria-label="Comunidade">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="9" cy="7.5" r="3" stroke="currentColor" stroke-width="2" />
+          <circle cx="16.5" cy="8.5" r="2.2" stroke="currentColor" stroke-width="1.8" />
+          <path d="M3.5 19.5v-1a4 4 0 0 1 4-4h3a4 4 0 0 1 4 4v1" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+          <path d="M15 15.2a3.5 3.5 0 0 1 2.5-.7h1a3.5 3.5 0 0 1 3.5 3.5v1.5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" />
+        </svg>
+      </button>
+    </div>
+
+    <div class="dock-bottom-actions">
+      <button class="dock-bottom-btn" id="dock-chat" aria-label="Mensagens">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" stroke="#fff" stroke-width="2" />
+        </svg>
+        <span class="dock-badge">4</span>
+      </button>
+      <button class="dock-bottom-btn" id="dock-downloads" aria-label="Downloads">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3" stroke="#fff" stroke-width="2"
+            stroke-linecap="round" />
+        </svg>
+        <span class="dock-status-dot"></span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- ===== CONTEÚDO PRINCIPAL DA BIBLIOTECA ===== -->
+  <main class="library-main-container">
+
+    <!-- Topo da Biblioteca: Contagem, Modo de Exibição e Barra de Busca Rápida (Design Loja / Catálogo) -->
+    <header class="catalog-top-header library-top-header">
+      <div class="catalog-results-wrap">
+        <h1 class="catalog-results-title">
+          <span class="catalog-count-badge" id="games-count-label">8</span>
+          <span class="catalog-results-label">jogos</span>
+        </h1>
+      </div>
+
+      <div class="catalog-top-controls">
+        <!-- Alternador Grade / Lista -->
+        <div class="view-mode-toggle" role="group" aria-label="Modo de visualização">
+          <button type="button" class="view-mode-btn active" id="btn-grid-view" aria-label="Visualização em Grade">
+            <svg viewBox="0 0 24 24" fill="none">
+              <rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" />
+              <rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" />
+              <rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" />
+              <rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="2" />
+            </svg>
+          </button>
+          <button type="button" class="view-mode-btn" id="btn-list-view" aria-label="Visualização em Lista">
+            <svg viewBox="0 0 24 24" fill="none">
+              <line x1="8" y1="6" x2="21" y2="6" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="8" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <line x1="8" y1="18" x2="21" y2="18" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              <circle cx="4" cy="6" r="1.5" fill="currentColor" />
+              <circle cx="4" cy="12" r="1.5" fill="currentColor" />
+              <circle cx="4" cy="18" r="1.5" fill="currentColor" />
+            </svg>
+          </button>
+        </div>
+
+        <!-- Campo de busca rápida da coleção -->
+        <div class="catalog-search-box">
+          <svg class="catalog-search-icon" viewBox="0 0 24 24" fill="none">
+            <circle cx="11" cy="11" r="8" stroke-width="2" stroke-linecap="round" />
+            <line x1="21" y1="21" x2="16.65" y2="16.65" stroke-width="2" stroke-linecap="round" />
+          </svg>
+          <input type="text" id="library-filter-input" class="catalog-search-input" placeholder="Buscar um jogo...">
+          <button type="button" class="catalog-clear-search" id="library-clear-search" aria-label="Limpar busca">✕</button>
+        </div>
+      </div>
+    </header>
+
+    <!-- Layout bipartido: Filtros Laterais + Painel Principal -->
+    <div class="library-content-layout">
+
+      <!-- Barra Lateral de Filtros (Sidebar Estilo Loja / Catálogo) -->
+      <aside class="catalog-sidebar library-filters-sidebar">
+
+        <!-- Grupo: GÊNERO -->
+        <div class="filter-group" id="group-genre">
+          <div class="filter-group-header">
+            <span class="filter-group-title">Gênero</span>
+            <svg class="filter-group-chevron" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="filter-group-body">
+            <nav class="genre-filter-list">
+              <div class="genre-filter-item active" data-genre="all">
+                <span>Todos os Jogos</span>
+                <svg class="genre-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              </div>
+              <div class="genre-filter-item" data-genre="action">
+                <span>Ação & Luta</span>
+                <svg class="genre-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              </div>
+              <div class="genre-filter-item" data-genre="adventure">
+                <span>Aventura & Metroidvania</span>
+                <svg class="genre-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              </div>
+              <div class="genre-filter-item" data-genre="roguelike">
+                <span>Roguelike & RPG</span>
+                <svg class="genre-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              </div>
+              <div class="genre-filter-item" data-genre="horror">
+                <span>Terror & Sobrevivência</span>
+                <svg class="genre-item-chevron" viewBox="0 0 24 24" fill="none"><path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" /></svg>
+              </div>
+            </nav>
+          </div>
+        </div>
+
+        <!-- Grupo: STATUS DE INSTALAÇÃO -->
+        <div class="filter-group" id="group-status">
+          <div class="filter-group-header">
+            <span class="filter-group-title">Status</span>
+            <svg class="filter-group-chevron" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="filter-group-body">
+            <div class="sidebar-checkbox-list">
+              <label class="sidebar-checkbox-item">
+                <input type="checkbox" id="filter-installed" checked>
+                <span>Instalados (3)</span>
+              </label>
+              <label class="sidebar-checkbox-item">
+                <input type="checkbox" id="filter-cloud" checked>
+                <span>Prontos p/ baixar (5)</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo: COLEÇÕES -->
+        <div class="filter-group" id="group-collections">
+          <div class="filter-group-header">
+            <span class="filter-group-title">Coleções</span>
+            <svg class="filter-group-chevron" viewBox="0 0 24 24" fill="none">
+              <path d="M6 9l6 6 6-6" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+          </div>
+          <div class="filter-group-body">
+            <div class="sidebar-checkbox-list">
+              <label class="sidebar-checkbox-item">
+                <input type="checkbox" id="filter-favorites">
+                <span>Favoritos</span>
+              </label>
+              <label class="sidebar-checkbox-item">
+                <input type="checkbox" id="filter-recent">
+                <span>Jogados Recentemente</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </aside>
+
+      <!-- Painel Principal de Jogos -->
+      <section class="library-main-panel">
+
+        <!-- Barra de Plataforma e Ordenação (Adaptado da barra superior da referência) -->
+        <div class="library-controls-bar">
+          <div class="filter-chips-group">
+            <span class="filter-chip-label">Plataforma:</span>
+            <button type="button" class="filter-chip active" data-platform="all">
+              <svg viewBox="0 0 24 24" fill="none"><rect x="3" y="3" width="7" height="7" fill="currentColor"/><rect x="14" y="3" width="7" height="7" fill="currentColor"/><rect x="14" y="14" width="7" height="7" fill="currentColor"/><rect x="3" y="14" width="7" height="7" fill="currentColor"/></svg>
+              Todas
+            </button>
+            <button type="button" class="filter-chip" data-platform="pc">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+              Windows PC
+            </button>
+            <button type="button" class="filter-chip" data-platform="console">
+              <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="2"/><circle cx="9" cy="12" r="1.5" fill="currentColor"/><circle cx="15" cy="12" r="1.5" fill="currentColor"/></svg>
+              Console
+            </button>
+          </div>
+
+          <!-- Dropdown de Ordenação (Populares, Recentes, Título, Horas Jogadas) -->
+          <div class="sort-by-wrapper">
+            <span class="sort-by-label">Ordenar por:</span>
+            <button type="button" class="sort-select-btn" id="sort-select-btn" aria-haspopup="true" aria-expanded="false">
+              <span id="current-sort-label">Jogados recentemente</span>
+              <svg viewBox="0 0 12 8" fill="none"><path d="M1 1.5L6 6.5L11 1.5" stroke="#C0FF00" stroke-width="1.8" stroke-linecap="round"/></svg>
+            </button>
+            <div class="sort-dropdown-menu" id="sort-dropdown-menu">
+              <div class="sort-option-item selected" data-sort="recent">Jogados recentemente</div>
+              <div class="sort-option-item" data-sort="hours">Horas jogadas</div>
+              <div class="sort-option-item" data-sort="az">Título: A a Z</div>
+              <div class="sort-option-item" data-sort="achievements">% Conquistas</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grade com os Jogos do Usuário -->
+        <div class="library-games-grid" id="library-grid">
+
+          <!-- Card 1: Fobia (Instalado & jogado) -->
+          <article class="library-card" data-title="Fobia: St. Dinfna Hotel" data-genre="horror" data-platform="pc" data-installed="true">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/game-fobia-hd.png" alt="Fobia: St. Dinfna Hotel" class="library-card-thumb">
+              <span class="library-badge-installed">● Instalado</span>
+              <button type="button" class="library-favorite-btn active" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-play-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Jogar Agora
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Fobia: St. Dinfna Hotel</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">32h jogadas</span>
+                <span>Última: Ontem</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 85%">
+                <div class="library-progress-bar" style="width: 85%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>18/22 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 2: Dandy Ace (Instalado) -->
+          <article class="library-card" data-title="Dandy Ace" data-genre="roguelike" data-platform="pc" data-installed="true">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/game-dandy-hd.png" alt="Dandy Ace" class="library-card-thumb">
+              <span class="library-badge-installed">● Instalado</span>
+              <button type="button" class="library-favorite-btn" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-play-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Jogar Agora
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Dandy Ace</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">48h jogadas</span>
+                <span>Última: há 3 dias</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 100%">
+                <div class="library-progress-bar" style="width: 100%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>34/34 Conquistas (100%)</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 3: Dandara (Instalado) -->
+          <article class="library-card" data-title="Dandara: Trials of Fear" data-genre="adventure" data-platform="pc" data-installed="true">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/game-dandara-hd.png" alt="Dandara: Trials of Fear" class="library-card-thumb">
+              <span class="library-badge-installed">● Instalado</span>
+              <button type="button" class="library-favorite-btn active" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-play-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+                  Jogar Agora
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Dandara: Trials of Fear</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">19h jogadas</span>
+                <span>Última: semana passada</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 64%">
+                <div class="library-progress-bar" style="width: 64%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>14/25 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 4: Pocket Bravery (Na Nuvem) -->
+          <article class="library-card" data-title="Pocket Bravery" data-genre="action" data-platform="pc" data-installed="false">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/game-pocket-hd.png" alt="Pocket Bravery" class="library-card-thumb">
+              <span class="library-badge-cloud">☁ Na Nuvem (4.2 GB)</span>
+              <button type="button" class="library-favorite-btn" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-install-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Instalar
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Pocket Bravery</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">6.5h jogadas</span>
+                <span>Não instalado</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 30%">
+                <div class="library-progress-bar" style="width: 30%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>8/28 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 5: Blazing Chrome (Na Nuvem) -->
+          <article class="library-card" data-title="Blazing Chrome" data-genre="action" data-platform="pc" data-installed="false">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/game-blazing-hd.png" alt="Blazing Chrome" class="library-card-thumb">
+              <span class="library-badge-cloud">☁ Na Nuvem (1.8 GB)</span>
+              <button type="button" class="library-favorite-btn active" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-install-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Instalar
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Blazing Chrome</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">14h jogadas</span>
+                <span>Não instalado</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 70%">
+                <div class="library-progress-bar" style="width: 70%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>15/20 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 6: 99Vidas (Na Nuvem) -->
+          <article class="library-card" data-title="99Vidas: O Jogo" data-genre="action" data-platform="pc" data-installed="false">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/card-99vidas-hd.png" alt="99Vidas: O Jogo" class="library-card-thumb">
+              <span class="library-badge-cloud">☁ Na Nuvem (2.4 GB)</span>
+              <button type="button" class="library-favorite-btn" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-install-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Instalar
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">99Vidas: O Jogo</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">21h jogadas</span>
+                <span>Não instalado</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 92%">
+                <div class="library-progress-bar" style="width: 92%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>28/30 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 7: Dolmen (Na Nuvem) -->
+          <article class="library-card" data-title="Dolmen" data-genre="roguelike" data-platform="pc" data-installed="false">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/card-dolmen-hd.png" alt="Dolmen" class="library-card-thumb">
+              <span class="library-badge-cloud">☁ Na Nuvem (18 GB)</span>
+              <button type="button" class="library-favorite-btn" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-install-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Instalar
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Dolmen</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">4.5h jogadas</span>
+                <span>Não instalado</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 15%">
+                <div class="library-progress-bar" style="width: 15%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>5/35 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Card 8: Hazel Sky (Na Nuvem) -->
+          <article class="library-card" data-title="Hazel Sky" data-genre="adventure" data-platform="pc" data-installed="false">
+            <div class="library-card-thumb-wrap">
+              <img src="assets/card-hazel-hd.png" alt="Hazel Sky" class="library-card-thumb">
+              <span class="library-badge-cloud">☁ Na Nuvem (6.8 GB)</span>
+              <button type="button" class="library-favorite-btn" aria-label="Favorito"><svg viewBox="0 0 24 24"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg></button>
+              <div class="library-card-action-overlay">
+                <button type="button" class="library-install-btn">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+                  Instalar
+                </button>
+              </div>
+            </div>
+            <div class="library-card-body">
+              <h3 class="library-card-title">Hazel Sky</h3>
+              <div class="library-card-meta">
+                <span class="hours-played">8h jogadas</span>
+                <span>Não instalado</span>
+              </div>
+              <div class="library-card-progress" title="Progresso da Campanha: 50%">
+                <div class="library-progress-bar" style="width: 50%;"></div>
+              </div>
+              <div class="library-card-footer-info">
+                <span>10/20 Conquistas</span>
+                <div class="platform-icons-mini">
+                  <svg viewBox="0 0 24 24"><path d="M3 5l8-1v8H3zM12 4l9-1v9h-9zM3 13h8v7l-8-1zM12 13h9v8l-9-1z"/></svg>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ===== RODAPÉ OFICIAL (Idêntico ao restante das páginas) ===== -->
+  <footer class="site-footer">
+    <div class="footer-top-divider">
+      <span class="divider-line"></span>
+      <span class="divider-star" aria-hidden="true">
+        <svg viewBox="0 0 100 60" width="34" height="20" fill="currentColor">
+          <path fill-rule="evenodd" clip-rule="evenodd"
+            d="M50 0L100 30L50 60L0 30Z M50 12.5C40.335 12.5 32.5 20.335 32.5 30C32.5 39.665 40.335 47.5 50 47.5C59.665 47.5 67.5 39.665 67.5 30C67.5 20.335 59.665 12.5 50 12.5Z" />
+        </svg>
+      </span>
+      <span class="divider-line"></span>
+    </div>
+
+    <div class="footer-container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4 class="footer-col-title">Links Rápidos</h4>
+          <ul class="footer-nav-list">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="index.html#sobre">Sobre Nós</a></li>
+            <li><a href="biblioteca.html">Minha Biblioteca</a></li>
+            <li><a href="index.html#lancamentos">Lançamentos</a></li>
+            <li><a href="index.html#nostalgia">Nostalgia BR</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Legal & Suporte</h4>
+          <ul class="footer-nav-list">
+            <li><a href="#">Termos de Serviço</a></li>
+            <li><a href="#">Política de Privacidade</a></li>
+            <li><a href="#">Desenvolvedores BR</a></li>
+            <li><a href="#">Publicar seu Jogo</a></li>
+            <li><a href="#">Central de Ajuda</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h4 class="footer-col-title">Conecte-se</h4>
+          <div class="footer-social-row">
+            <a href="#" class="footer-social-btn" aria-label="X / Twitter"><svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+            <a href="#" class="footer-social-btn" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></a>
+            <a href="#" class="footer-social-btn" aria-label="Discord"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028c.462-.63.874-1.295 1.226-1.994.021-.041.001-.09-.041-.106a13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.929 1.793 8.18 1.793 12.061 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.873.894.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.028zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z"/></svg></a>
+            <a href="#" class="footer-social-btn" aria-label="Steam"><svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.029 4.524 4.524s-2.03 4.524-4.524 4.524h-.105l-4.076 2.811c0 .052.005.105.005.159 0 1.876-1.522 3.409-3.409 3.409-1.637 0-3.003-1.161-3.33-2.695L.432 15.02C1.942 20.216 6.55 24 12 24c6.627 0 12-5.373 12-12S18.627 0 11.979 0zm-3.613 16.037c-.126 0-.25-.015-.372-.038l-1.95 1.95a3.414 3.414 0 0 0 4.25-1.936 2.428 2.428 0 0 1-1.928.024zm7.575-9.615c-1.42 0-2.57 1.15-2.57 2.57s1.15 2.57 2.57 2.57 2.57-1.15 2.57-2.57-1.15-2.57-2.57-2.57z"/></svg></a>
+          </div>
+        </div>
+
+        <div class="footer-col footer-col-newsletter">
+          <h4 class="footer-col-title">Newsletter</h4>
+          <p class="newsletter-headline">Quer receber promoções e muito mais? Assine nossa newsletter.</p>
+          <form class="newsletter-form" id="newsletter-form" onsubmit="event.preventDefault(); alert('Inscrição confirmada na Iara Games!');">
+            <input type="email" placeholder="seu.email@exemplo.com" class="newsletter-input" required aria-label="E-mail para newsletter">
+            <button type="submit" class="newsletter-btn">Inscrever</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-brand-backdrop">
+      <div class="footer-glow-overlay"></div>
+      <div class="footer-brand-title">IaraGames</div>
+    </div>
+  </footer>
+
+  <script>
+    // Interatividade da Biblioteca: Busca rápida, filtros e ordenação
+    const searchInput = document.getElementById('library-filter-input');
+    const clearSearchBtn = document.getElementById('library-clear-search');
+    const cards = document.querySelectorAll('.library-card');
+    const countLabel = document.getElementById('games-count-label');
+    const gridEl = document.getElementById('library-grid');
+    const btnGridView = document.getElementById('btn-grid-view');
+    const btnListView = document.getElementById('btn-list-view');
+
+    const filterInstalled = document.getElementById('filter-installed');
+    const filterCloud = document.getElementById('filter-cloud');
+    const filterFavorites = document.getElementById('filter-favorites');
+
+    // Alternar Grade / Lista
+    if (btnGridView && btnListView && gridEl) {
+      btnGridView.addEventListener('click', () => {
+        btnGridView.classList.add('active');
+        btnListView.classList.remove('active');
+        gridEl.classList.remove('list-view');
+      });
+
+      btnListView.addEventListener('click', () => {
+        btnListView.classList.add('active');
+        btnGridView.classList.remove('active');
+        gridEl.classList.add('list-view');
+      });
+    }
+
+    // Filtros unificados (busca + gênero + status + favoritos)
+    function applyLibraryFilters() {
+      const query = (searchInput ? searchInput.value : '').toLowerCase().trim();
+      if (clearSearchBtn) clearSearchBtn.style.display = query ? 'block' : 'none';
+
+      const activeGenreItem = document.querySelector('.genre-filter-item.active');
+      const activeGenre = activeGenreItem ? (activeGenreItem.dataset.genre || 'all') : 'all';
+
+      const showInstalled = filterInstalled ? filterInstalled.checked : true;
+      const showCloud = filterCloud ? filterCloud.checked : true;
+      const onlyFavorites = filterFavorites ? filterFavorites.checked : false;
+
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const title = (card.dataset.title || '').toLowerCase();
+        const cardGenre = card.dataset.genre;
+        const isInstalled = card.dataset.installed === 'true';
+        const isFavorite = card.querySelector('.library-favorite-btn')?.classList.contains('active');
+
+        const matchesQuery = !query || title.includes(query);
+        const matchesGenre = (activeGenre === 'all' || cardGenre === activeGenre);
+        const matchesStatus = (isInstalled && showInstalled) || (!isInstalled && showCloud);
+        const matchesFav = !onlyFavorites || isFavorite;
+
+        const match = matchesQuery && matchesGenre && matchesStatus && matchesFav;
+        card.style.display = match ? '' : 'none';
+        if (match) visibleCount++;
+      });
+
+      if (countLabel) countLabel.textContent = visibleCount;
+    }
+
+    // Eventos de Busca
+    if (searchInput) {
+      searchInput.addEventListener('input', applyLibraryFilters);
+    }
+
+    if (clearSearchBtn) {
+      clearSearchBtn.addEventListener('click', () => {
+        searchInput.value = '';
+        applyLibraryFilters();
+      });
+    }
+
+    // Eventos de Gênero (Sidebar estilo Loja)
+    document.querySelectorAll('.genre-filter-item').forEach(item => {
+      item.addEventListener('click', () => {
+        document.querySelectorAll('.genre-filter-item').forEach(i => i.classList.remove('active'));
+        item.classList.add('active');
+        applyLibraryFilters();
+      });
+    });
+
+    // Eventos de Checkbox (Status e Favoritos)
+    [filterInstalled, filterCloud, filterFavorites].forEach(chk => {
+      if (chk) chk.addEventListener('change', applyLibraryFilters);
+    });
+
+    // Acordeão de Filtros na Sidebar (Gênero, Status, Coleções)
+    document.querySelectorAll('.filter-group-header').forEach(header => {
+      header.addEventListener('click', () => {
+        header.parentElement.classList.toggle('collapsed');
+      });
+    });
+
+    // Dropdown de Ordenação
+    const sortBtn = document.getElementById('sort-select-btn');
+    const sortMenu = document.getElementById('sort-dropdown-menu');
+    const currentSortLabel = document.getElementById('current-sort-label');
+
+    if (sortBtn && sortMenu) {
+      sortBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        sortMenu.classList.toggle('show');
+      });
+
+      document.querySelectorAll('.sort-option-item').forEach(opt => {
+        opt.addEventListener('click', () => {
+          document.querySelectorAll('.sort-option-item').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          if (currentSortLabel) currentSortLabel.textContent = opt.textContent;
+          sortMenu.classList.remove('show');
+        });
+      });
+
+      document.addEventListener('click', () => {
+        sortMenu.classList.remove('show');
+      });
+    }
+
+    // Toggle de Favorito
+    document.querySelectorAll('.library-favorite-btn').forEach(fav => {
+      fav.addEventListener('click', (e) => {
+        e.stopPropagation();
+        fav.classList.toggle('active');
+      });
+    });
+
+    // Saudação dinâmica
+    const currentHour = new Date().getHours();
+    const greetTimeEl = document.querySelector('.greet-time');
+    if (greetTimeEl) {
+      greetTimeEl.textContent = currentHour < 12 ? 'Bom dia, ' : currentHour < 18 ? 'Boa tarde, ' : 'Boa noite, ';
+    }
+
+    // Dropdown Menu do Usuário (Matheus Becari)
+    const trigger = document.getElementById('user-profile-trigger');
+    const dropdown = document.getElementById('user-dropdown-menu');
+    if (trigger && dropdown) {
+      trigger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        dropdown.classList.toggle('show');
+        const isExpanded = dropdown.classList.contains('show');
+        trigger.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+      });
+
+      document.addEventListener('click', (e) => {
+        if (!dropdown.contains(e.target) && !trigger.contains(e.target)) {
+          dropdown.classList.remove('show');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+          dropdown.classList.remove('show');
+          trigger.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
